@@ -5,9 +5,9 @@
   <subtitle>study hard , study smart</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.wunan520.com/"/>
-  <updated>2018-10-05T18:28:08.727Z</updated>
-  <id>http://www.wunan520.com/</id>
+  <link href="http://www.wunan520.cn/"/>
+  <updated>2018-10-05T20:32:48.344Z</updated>
+  <id>http://www.wunan520.cn/</id>
   
   <author>
     <name>EmilyWu</name>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SecondPage</title>
+    <link href="http://www.wunan520.cn/2018/10/06/SecondPage/"/>
+    <id>http://www.wunan520.cn/2018/10/06/SecondPage/</id>
+    <published>2018-10-05T20:31:12.000Z</published>
+    <updated>2018-10-05T20:32:48.344Z</updated>
+    
+    <content type="html"><![CDATA[<p>SecondPageTest</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;SecondPageTest&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>MyFristBlogTest</title>
-    <link href="http://www.wunan520.com/2018/10/05/MyFristBlogTest/"/>
-    <id>http://www.wunan520.com/2018/10/05/MyFristBlogTest/</id>
+    <link href="http://www.wunan520.cn/2018/10/05/MyFristBlogTest/"/>
+    <id>http://www.wunan520.cn/2018/10/05/MyFristBlogTest/</id>
     <published>2018-10-05T15:08:30.000Z</published>
-    <updated>2018-10-05T18:28:08.727Z</updated>
+    <updated>2018-10-05T20:11:49.176Z</updated>
     
     <content type="html"><![CDATA[<h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><p>这是我的第一篇文章:)<br>22lfldkfldkfdkfk</p><p> <a href="https://www.baidu.com" target="_blank" rel="noopener">连接测试 2222</a> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eeeee</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -31,17 +53,17 @@
     
     </summary>
     
-      <category term="Hexo教程" scheme="http://www.wunan520.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+      <category term="Hexo教程" scheme="http://www.wunan520.cn/categories/Hexo%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="标签2" scheme="http://www.wunan520.com/tags/%E6%A0%87%E7%AD%BE2/"/>
+      <category term="标签2" scheme="http://www.wunan520.cn/tags/%E6%A0%87%E7%AD%BE2/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://www.wunan520.com/2018/09/30/hello-world/"/>
-    <id>http://www.wunan520.com/2018/09/30/hello-world/</id>
+    <link href="http://www.wunan520.cn/2018/09/30/hello-world/"/>
+    <id>http://www.wunan520.cn/2018/09/30/hello-world/</id>
     <published>2018-09-29T23:33:19.000Z</published>
     <updated>2018-09-29T23:33:19.000Z</updated>
     
