@@ -278,22 +278,6 @@
         
         
           
-          <li class="menu-item menu-item-schedule">
-    <a href="/schedule/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />日程表</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
-    <a href="/sitemap.xml" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-commonweal">
     <a href="/404/404.html" rel="section">
       <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
@@ -460,18 +444,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/06/SecondPage/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/06/SecondPage/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -558,6 +530,14 @@
 
 
     
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EmilyWu wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
 
     
       <div>
@@ -641,12 +621,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDE1MC8xNjY3Nw=="></div>
     </div>
 
   
@@ -750,11 +725,6 @@
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/wunanxyz" target="_blank" title="微信"><i class="fa fa-fw fa-wechat"></i>微信</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
                   <a href="https://www.jianshu.com/u/9123d005818f" target="_blank" title="简书"><i class="fa fa-fw fa-book"></i>简书</a>
                   
                 </span>
@@ -771,6 +741,11 @@
               
                 <span class="links-of-author-item">
                   <a href="https://blog.csdn.net/wuyanan123456" target="_blank" title="csdn"><i class="fa fa-fw fa-clone"></i>csdn</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/5a7d3c2ef265da4e8e78556d" target="_blank" title="掘金"><i class="fa fa-fw fa-balance-scale"></i>掘金</a>
                   
                 </span>
               
@@ -812,6 +787,13 @@
               </ul>
             </div>
           
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=458084230&auto=0&height=66"></iframe>
+
+
+
 
           
             
@@ -998,26 +980,21 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://wunan.disqus.com/count.js" async></script>
-  
+
 
   
     <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://www.wunan520.cn/2018/10/06/SecondPage/';
-        this.page.identifier = '2018/10/06/SecondPage/';
-        this.page.title = 'SecondPage';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://wunan.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
+      window.livereOptions = {
+        refer: '2018/10/06/SecondPage/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
     </script>
   
 
@@ -1027,33 +1004,6 @@
 
 
 
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: '9csAQJGoSiVwmBtCvJMr4yaR-gzGzoHsz',
-        appKey: 'xH4fEgmbtyotnFEUPMWe7oqG',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        meta:guest,
-        pageSize:'10' || 10,
-        visitor: false
-    });
-  </script>
 
 
 
