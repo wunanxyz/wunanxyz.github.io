@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wunan520.cn/"/>
-  <updated>2018-10-05T21:00:28.489Z</updated>
+  <updated>2018-10-17T05:19:53.557Z</updated>
   <id>http://www.wunan520.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS的Push的原理</title>
+    <link href="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/"/>
+    <id>http://www.wunan520.cn/2018/10/17/PrincipleOfPush/</id>
+    <published>2018-10-17T03:40:53.000Z</published>
+    <updated>2018-10-17T05:19:53.557Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Push的工作原理"><a href="#Push的工作原理" class="headerlink" title="Push的工作原理"></a>Push的工作原理</h3><p>  要理解Push的工作原理，我们必须要知道几个知识点。</p><ul><li>设备是如何和APNs保持连接的。</li><li>APNs如何识别需要推送的设备。</li></ul><p>&emsp;&emsp;APNs可以推送给设备Push消息，是因为设备(iPhone、iPad)和APNs有一个长连接的通道。<br>&emsp;&emsp;iOS的Push通道是一个独立的长连接通道，并且是唯一的一个通道，由iOS系统独立维护。也就是说每一个手机系统，每次开机后，手机后台就会发出一个长连接，连接到苹果服务器(APNs)。<br>当APNs收到新的Push通知的时候就会把通知推送给应用设备。</p><p><img src="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="苹果官方网站的原理图"></p><p>通过官方的原理图四个身份</p><ul><li>Provider：我们的服务器sever</li><li>APNs：苹果服务器</li><li>Device(设备)：iPhone、iPad</li><li>Client App：客户端的app</li></ul><p><strong>Tip</strong>：苹果可以省电省流量，原因之一有<strong>Push网络通道是唯一的一个</strong>，并且苹果公司来维护。</p><p><img src="https://upload-images.jianshu.io/upload_images/1683361-36e756ff58c58570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push的工作原理"></p><p>总结下大致流程</p><ol><li>设备打开某个App后，会生成唯一的<strong>一个token</strong>，并把这个token上传给我们自己的服务器，我们的服务器有了token，就可以向我们的app推送通知了，这个是前提。但是这个通知并不能直接推送给我们的设备，而是要推送给苹果的服务器。</li><li>我们的服务器会将token和推送的内容，一起推送给苹果的服务器。</li><li>苹果服务器会根据token定位到设备,将push推送给设备。</li><li>设备拿到这个push，就会知道是哪个app。然后就可以将这个通知推送到具体的app。</li></ol><p>参考资料</p><ul><li><a href="https://www.imooc.com/video/15117" target="_blank" rel="noopener">push工作原理</a></li><li><a href="https://developer.apple.com/documentation/usernotifications?language=objc" target="_blank" rel="noopener">苹果官方push内容</a></li><li><a href="http://www.open-open.com/lib/view/open1462951879679.html" target="_blank" rel="noopener">iOS远程推送原理及实现过程</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p style=&quot;color: #333333&quot;&gt;
+概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。
+&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="push相关" scheme="http://www.wunan520.cn/categories/push%E7%9B%B8%E5%85%B3/"/>
+    
+      <category term="iOS" scheme="http://www.wunan520.cn/categories/push%E7%9B%B8%E5%85%B3/iOS/"/>
+    
+    
+      <category term="push" scheme="http://www.wunan520.cn/tags/push/"/>
+    
+      <category term="iOS" scheme="http://www.wunan520.cn/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>SecondPage</title>
