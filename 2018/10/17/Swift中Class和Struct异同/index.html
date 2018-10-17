@@ -124,7 +124,7 @@
 <meta property="og:description" content="概述:	Swift语言中Class的定义和Struct的定义。以及二者创建的对象的异同。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1683361-ebfc93018b2012ba.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-17T09:53:40.612Z">
+<meta property="og:updated_time" content="2018-10-17T23:49:25.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift中Class和Struct异同">
 <meta name="twitter:description" content="概述:	Swift语言中Class的定义和Struct的定义。以及二者创建的对象的异同。">
@@ -414,12 +414,24 @@
                 
               
 
-              <time title="创建时间：2018-10-17 17:46:08 / 修改时间：17:53:40" itemprop="dateCreated datePublished" datetime="2018-10-17T17:46:08+08:00">2018-10-17</time>
+              <time title="创建时间：2018-10-17 17:46:08" itemprop="dateCreated datePublished" datetime="2018-10-17T17:46:08+08:00">2018-10-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 07:49:25" itemprop="dateModified" datetime="2018-10-18T07:49:25+08:00">2018-10-18</time>
               
             
           </span>
@@ -518,7 +530,7 @@
 <h3 id="类和结构体实例"><a href="#类和结构体实例" class="headerlink" title="类和结构体实例"></a>类和结构体实例</h3><p>生成结构体和类实例的语法非常相似：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someResolution = <span class="type">Resolution</span>()</span><br><span class="line"><span class="keyword">let</span> someVideoMode = <span class="type">VideoMode</span>()</span><br></pre></td></tr></table></figure></p>
 <p>结构体和类都使用<strong>构造器</strong>语法来生成新的实例。构造器语法的最简单形式是在结构体或者类的类型名称后跟随一对<strong>空括号</strong>，如Resolution()或VideoMode()。通过这种方式所创建的类或者结构体实例，其属性均会被初始化为<strong>默认值</strong>。</p>
 <h3 id="属性访问"><a href="#属性访问" class="headerlink" title="属性访问"></a>属性访问</h3><p>通过使用点语法,访问实例的属性.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"The width of someResolution is <span class="subst">\(someResolution.width)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The width of someResolution is 0"</span></span><br></pre></td></tr></table></figure></p>
-<p>可以访问子属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;The width of someVideoMode is \(someVideoMode.resolution.width)&quot;)</span><br><span class="line">// 打印 &quot;The width of someVideoMode is 0&quot;</span><br></pre></td></tr></table></figure></p>
+<p>可以访问子属性<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The width of someVideoMode is 0"</span></span><br></pre></td></tr></table></figure></p>
 <p>可以使用点语法为变量属性赋值<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">someVideoMode.resolution.width = <span class="number">1280</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The width of someVideoMode is now <span class="subst">\(someVideoMode.resolution.width)</span>"</span>)</span><br><span class="line"><span class="comment">// 打印 "The width of someVideoMode is now 1280"</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="结构体类型的成员逐一构造器"><a href="#结构体类型的成员逐一构造器" class="headerlink" title="结构体类型的成员逐一构造器"></a>结构体类型的成员逐一构造器</h3><p>所有结构体都有一个自动生成的成员逐一构造器，用于初始化新结构体实例中成员的属性。新实例中各个属性的初始值可以通过属性的名称传递到成员逐一构造器之中：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width:<span class="number">640</span>, height: <span class="number">480</span>)</span><br></pre></td></tr></table></figure></p>
 <p>与结构体不同，类实例<strong>没有默认的成员逐一构造器</strong>。</p>
@@ -532,7 +544,7 @@
 <li>不等价于（!==）</li>
 </ul>
 <p>运用这两个运算符检测两个常量或者变量是否<strong>引用同一个实例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if tenEighty === alsoTenEighty &#123;</span><br><span class="line">    print(&quot;tenEighty and alsoTenEighty refer to the same Resolution instance.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//打印 &quot;tenEighty and alsoTenEighty refer to the same Resolution instance.&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> tenEighty === alsoTenEighty &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"tenEighty and alsoTenEighty refer to the same Resolution instance."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//打印 "tenEighty and alsoTenEighty refer to the same Resolution instance."</span></span><br></pre></td></tr></table></figure>
 <p>请注意，“等价于”（用三个等号表示，===）与“等于”（用两个等号表示，==）的不同：</p>
 <ul>
 <li>“等价于”表示两个类类型（class type）的常量或者变量引用同一个类实例。</li>
@@ -598,7 +610,7 @@
   <p><span>本文标题:</span><a href="/2018/10/17/Swift中Class和Struct异同/">Swift中Class和Struct异同</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
   <p><span>发布时间:</span>2018年10月17日 - 17:10</p>
-  <p><span>最后更新:</span>2018年10月17日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月18日 - 07:10</p>
   <p><span>原始链接:</span><a href="/2018/10/17/Swift中Class和Struct异同/" title="Swift中Class和Struct异同">http://www.wunan520.cn/2018/10/17/Swift中Class和Struct异同/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/17/Swift中Class和Struct异同/"  aria-label="复制成功！"></i></span>
   </p>
