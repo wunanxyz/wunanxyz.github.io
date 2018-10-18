@@ -29,4 +29,31 @@
         <tag>push</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[SecondPage]]></title>
+    <url>%2F2018%2F10%2F06%2FNotNeed%2FSecondPage%2F</url>
+    <content type="text"><![CDATA[SecondPageTestSecondPageTestSecondPageTestSecondPageTestSecondPageTest]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>标签2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MyFristBlogTest]]></title>
+    <url>%2F2018%2F10%2F05%2FNotNeed%2FMyFristBlogTest%2F</url>
+    <content type="text"><![CDATA[你好这是我的第一篇文章:)22lfldkfldkfdkfk 连接测试 2222 1eeeee]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>标签2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F09%2F30%2FNotNeed%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
 </search>
