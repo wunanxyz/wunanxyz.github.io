@@ -10,7 +10,9 @@
         <category>证书</category>
       </categories>
       <tags>
-        <tag>iOS - push - 证书</tag>
+        <tag>iOS</tag>
+        <tag>push</tag>
+        <tag>证书</tag>
       </tags>
   </entry>
   <entry>
@@ -24,9 +26,7 @@
       </categories>
       <tags>
         <tag>Swift</tag>
-        <tag>对比</tag>
         <tag>Class</tag>
-        <tag>Struct</tag>
       </tags>
   </entry>
   <entry>
