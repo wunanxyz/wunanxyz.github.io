@@ -37,7 +37,7 @@
     <content type="text"><![CDATA[Push的工作原理 要理解Push的工作原理，我们必须要知道几个知识点。 设备是如何和APNs保持连接的。 APNs如何识别需要推送的设备。 &emsp;&emsp;APNs可以推送给设备Push消息，是因为设备(iPhone、iPad)和APNs有一个长连接的通道。&emsp;&emsp;iOS的Push通道是一个独立的长连接通道，并且是唯一的一个通道，由iOS系统独立维护。也就是说每一个手机系统，每次开机后，手机后台就会发出一个长连接，连接到苹果服务器(APNs)。当APNs收到新的Push通知的时候就会把通知推送给应用设备。 通过官方的原理图四个身份 Provider：我们的服务器sever APNs：苹果服务器 Device(设备)：iPhone、iPad Client App：客户端的app Tip：苹果可以省电省流量，原因之一有Push网络通道是唯一的一个，并且苹果公司来维护。 总结下大致流程 设备打开某个App后，会生成唯一的一个token，并把这个token上传给我们自己的服务器，我们的服务器有了token，就可以向我们的app推送通知了，这个是前提。但是这个通知并不能直接推送给我们的设备，而是要推送给苹果的服务器。 我们的服务器会将token和推送的内容，一起推送给苹果的服务器。 苹果服务器会根据token定位到设备,将push推送给设备。 设备拿到这个push，就会知道是哪个app。然后就可以将这个通知推送到具体的app。 参考资料 push工作原理 苹果官方push内容 iOS远程推送原理及实现过程]]></content>
       <categories>
         <category>iOS</category>
-        <category>push相关</category>
+        <category>push</category>
       </categories>
       <tags>
         <tag>iOS</tag>
