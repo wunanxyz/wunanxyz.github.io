@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS开发实用软件之NWPusher]]></title>
+    <url>%2F2018%2F10%2F23%2FiOS%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E8%BD%AF%E4%BB%B6%E4%B9%8BNWPusher%2F</url>
+    <content type="text"><![CDATA[一个App获取到一个Push内容。必须是服务器拿着对应token和需要的消息内容发给苹果服务器，然后由苹果服务器推送给用户。作为前端开发人员，为了学习Push，去搭建一个服务器，还是很耗时的。想了解iOS推送系列之Push的工作原理，可以查看这篇博客。 现在有个软件NWPusher可以模拟服务器发送Push。为我们研究Push提供了便利，我们一起来了解下。 一、软件的安装多种方式： 使用Homebrew cask 1brew cask install pusher 直接安装Pusher.app 可以下载软件：最新的下载地址 NWPusher可以可以当做framework使用。这个也有2种方式。 3.1 使用CocoaPods 1pod &apos;NWPusher&apos;, &apos;~&gt; 0.7.0&apos; 3.2 使用Carthage 1github &quot;noodlewerk/NWPusher&quot; 二、软件的介绍软件界面如图：如图所示： 我们需要选择相应的Push开发测试证书，如果创建证书，可以查看开发环境Push证书的创建图文流程这篇博客了解相应的知识。 添加相应的deviceToken 选择过期时间:有8种选择。 Expiry:None : 不会过期 immediate(0) :立即 1 minute :1分钟时 5 minutes :5分钟时 1 hour :1小时时 1 day :1天时 Far past(1) :遥远的过去 Far future: :永远 选择优先级：3个 Pirority:None :没有优先级 Conserve power(5) : 电量优先 immediately(10) : 立刻，其优先级最高 Payload输入内容就是我们需要传送的数据了：这个数据传输以JSON的格式存储 keyaps,是其value是我们需要传送的内容。 keyalert,是其value就是弹出框需要展示的内容 keybadge,是其value就是APP icon，展示的信息个数。 keysound,是其value就是表示当有Push消息的时候，是否需要声音提示。 所以都填选好，点击按钮 Push。就可以发送了。其发送状态，边上都要问题提示。 友情链接： NWPusher github地址 搭建Push环境]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>push</category>
+      </categories>
+      <tags>
+        <tag>push</tag>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[开发环境Push证书的创建图文流程]]></title>
     <url>%2F2018%2F10%2F22%2F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83Push%E8%AF%81%E4%B9%A6%E7%9A%84%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%96%87%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[当写Push的时候，必须有相应的证书。而证书的创建也是个知识点。今天以图文的形式写个相关的证书创建的流程。生成对应的APP ID 和证书 一.添加App ID1.进入苹果开发中心的App Id 选择 Cerfificates,Identifiers&amp;Profiles –&gt; Identifiers –&gt; App IDs 点击右上角的+来添加证书。 2.注册一个App ID 在这个页面填写和选择相应的 在App ID Description –&gt; name 输入相应的App Name 在App ID Suffix –&gt; Explicit App ID –&gt; Bundle ID 输入相应的bundle id 在 App Services –&gt; Enable Services 选择相应的服务。这里选项 Push Notifications。点击continue生成对应的app id 3. 确认App Id，这个页面不需要填选任何内容。检查下即将创建的App ID的内容，是否正确。 点击Rigister注册。 4. 完成操作点击Done完成操作。这个时候App ID就创建成功了。 生成APP ID 之后，再生成对应的证书，用于身份认证。 二. 进入苹果开发中心的证书1. 进入开发环境证书列表页 选择 Cerfificates,Identifiers&amp;Profiles –&gt; Cerfificates –&gt; Development 点击右上角的+来添加证书。 2. 选择证书类型2.1. 因为是需要添加推送证书，选择的证书了类型Apple Push Notification server SSL(SandBox)。然后下一步 2.2. 选择添加App Id 3. 提交点子信息证书的请求相应证书创建电子信息证书步骤是提示,点击continue. 4. 生成选择添加本地请求文件。如何创建请求文件，从下面的第三部分：创建电子信息证书的步骤获取。 5. 下载证书已经生成成功，下载到本地。 6. 添加到钥匙串下载的文件aps_development.cer,双击这个文件来安装。安装成功就会跳转到钥匙串的证书部分，表示安装成功。 三. 电子证书请求文件的创建。 在进入钥匙串中 创建电子签名请求 a. 钥匙串访问 –&gt; 证书助理 –&gt; 从证书颁发机构请求... b. 填写添加邮件,选择存储到磁盘。点击继续,选择保存到本地的位置，保存到本地。c.本地的电子签名请求 以上就是整个开发环境Push证书的创建过程。 参考: 搭建Push环境上]]></content>
