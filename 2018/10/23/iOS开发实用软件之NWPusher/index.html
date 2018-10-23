@@ -124,7 +124,7 @@
 <meta property="og:description" content="概述:软件NWPusher可以模拟服务器发送Push。为我们研究Push提供了便利，我们一起来了解下。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f86250c2e9a2?w=1224&h=668&f=jpeg&s=185349">
-<meta property="og:updated_time" content="2018-10-23T06:11:48.693Z">
+<meta property="og:updated_time" content="2018-10-23T07:31:13.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发实用软件之NWPusher">
 <meta name="twitter:description" content="概述:软件NWPusher可以模拟服务器发送Push。为我们研究Push提供了便利，我们一起来了解下。">
@@ -414,7 +414,7 @@
                 
               
 
-              <time title="创建时间：2018-10-23 14:08:39 / 修改时间：14:11:48" itemprop="dateCreated datePublished" datetime="2018-10-23T14:08:39+08:00">2018-10-23</time>
+              <time title="创建时间：2018-10-23 14:08:39 / 修改时间：15:31:13" itemprop="dateCreated datePublished" datetime="2018-10-23T14:08:39+08:00">2018-10-23</time>
             
 
             
@@ -520,19 +520,22 @@
 <li>immediately(10) : 立刻，其优先级最高</li>
 </ul>
 </li>
-<li>Payload输入内容就是我们需要传送的数据了：这个数据传输以JSON的格式存储<ul>
-<li>key<strong>aps</strong>,是其value是我们需要传送的内容。</li>
-<li>key<strong>alert</strong>,是其value就是弹出框需要展示的内容</li>
-<li>key<strong>badge</strong>,是其value就是APP icon，展示的信息个数。</li>
-<li>key<strong>sound</strong>,是其value就是表示当有Push消息的时候，是否需要声音提示。</li>
+<li>Payload输入内容就是我们需要传送的数据了：这个数据传输以JSON的格式存储。是必要按照APNs发送的Push格式的。Push消息常用的key如下：<ul>
+<li><strong>aps</strong>,是其value是我们需要传送的内容。</li>
+<li><strong>alert</strong>,是其value就是弹出框需要展示的内容。</li>
+<li><strong>badge</strong>,是其value就是APP icon，展示的信息个数。</li>
+<li><strong>sound</strong>,是其value就是表示当有Push消息的时候，是否需要声音提示。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<p>所以都填选好，点击按钮 Push。就可以发送了。其发送状态，边上都要问题提示。</p>
+<p>另外，alert中value值，可以是字符串，可以是字典。这个字典可以使用多对值，比如其key是<code>title</code>,<code>subtitle</code>,<code>body</code>等。其格式如下<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"aps"</span>: &#123;</span><br><span class="line">		<span class="attr">"alert"</span>: &#123;</span><br><span class="line">			<span class="attr">"title"</span>: <span class="string">"title"</span>,</span><br><span class="line">			<span class="attr">"subtitle"</span>: <span class="string">"subTitle"</span>,</span><br><span class="line">			<span class="attr">"body"</span>: <span class="string">"body"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">"badge"</span>: <span class="number">1</span>,</span><br><span class="line">		<span class="attr">"sound"</span>: <span class="string">"default"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>更多关于<code>aps</code>,<code>alert</code>,<code>sound</code>等可以查看官网：<a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification?language=objc" target="_blank" rel="noopener">Generating a Remote Notification</a></p>
+<p>所以都填选好，点击按钮 Push。就可以发送了。其发送状态，边上都有发布状态的提示信息。</p>
 <p>友情链接：</p>
 <ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification?language=objc" target="_blank" rel="noopener">Generating a Remote Notification</a></li>
 <li><a href="https://github.com/noodlewerk/NWPusher" target="_blank" rel="noopener">NWPusher github地址</a></li>
 <li><a href="https://www.imooc.com/video/15121" target="_blank" rel="noopener">搭建Push环境</a></li>
 </ul>
@@ -570,7 +573,7 @@
   <p><span>本文标题:</span><a href="/2018/10/23/iOS开发实用软件之NWPusher/">iOS开发实用软件之NWPusher</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
   <p><span>发布时间:</span>2018年10月23日 - 14:10</p>
-  <p><span>最后更新:</span>2018年10月23日 - 14:10</p>
+  <p><span>最后更新:</span>2018年10月23日 - 15:10</p>
   <p><span>原始链接:</span><a href="/2018/10/23/iOS开发实用软件之NWPusher/" title="iOS开发实用软件之NWPusher">http://www.wunan520.cn/2018/10/23/iOS开发实用软件之NWPusher/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/23/iOS开发实用软件之NWPusher/"  aria-label="复制成功！"></i></span>
   </p>
@@ -974,7 +977,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.7k字</span>
+  <span class="post-count">博客全站共3.8k字</span>
 </div>
 
         
