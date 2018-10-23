@@ -115,17 +115,27 @@
 
 
 
-  <meta name="description" content="learn &amp; record &amp;share">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://www.wunan520.cn/tags/index.html">
+  <meta name="description" content="概述:开发环境下Provisioning Profile文件的创建。 当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发环境下PP文件的创建">
+<meta property="og:url" content="http://www.wunan520.cn/2018/10/23/开发环境下PP文件的创建/index.html">
 <meta property="og:site_name" content="吴楠的小栈">
-<meta property="og:description" content="learn &amp; record &amp;share">
+<meta property="og:description" content="概述:开发环境下Provisioning Profile文件的创建。 当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-05T13:46:24.785Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a03441753c443?w=396&h=215&f=jpeg&s=5234">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a034419938f4e?w=240&h=240&f=jpeg&s=7699">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a034419af214f?w=1560&h=1410&f=jpeg&s=160699">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a03441995e24f?w=1572&h=774&f=jpeg&s=163514">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a03442313878b?w=1576&h=860&f=jpeg&s=193482">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a034424596e55?w=1572&h=1040&f=jpeg&s=172776">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a0344b02f0e54?w=1578&h=1434&f=jpeg&s=202475">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a0344b03ead74?w=1576&h=844&f=jpeg&s=168356">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fwi9kmpldyj317y0r4tdd.jpg">
+<meta property="og:updated_time" content="2018-10-23T09:27:09.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="learn &amp; record &amp;share">
+<meta name="twitter:title" content="开发环境下PP文件的创建">
+<meta name="twitter:description" content="概述:开发环境下Provisioning Profile文件的创建。 当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/10/23/166a03441753c443?w=396&h=215&f=jpeg&s=5234">
 
 
 
@@ -134,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wunan520.cn/tags/"/>
+  <link rel="canonical" href="http://www.wunan520.cn/2018/10/23/开发环境下PP文件的创建/"/>
 
 
 
@@ -144,7 +154,7 @@
   };
 </script>
 
-  <title>标签 | 吴楠的小栈</title>
+  <title>开发环境下PP文件的创建 | 吴楠的小栈</title>
   
 
 
@@ -253,7 +263,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -349,112 +359,281 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/10/23/开发环境下PP文件的创建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EmilyWu">
+      <meta itemprop="description" content="learn & record &share">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴楠的小栈">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">标签</h1>
+        
+        
+          <h1 class="post-title" itemprop="name headline">开发环境下PP文件的创建
+              
+            
+          </h1>
+        
 
-<div class="post-meta">
-  
-  
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
+              
+                
+              
+
+              <time title="创建时间：2018-10-23 17:26:07 / 修改时间：17:27:09" itemprop="dateCreated datePublished" datetime="2018-10-23T17:26:07+08:00">2018-10-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description"><p style="color: #333333">
+概述:开发环境下Provisioning Profile文件的创建。
+当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。
+</p>
 </div>
+          
 
-</header>
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
+
       
-      <div class="post-body">
-        
-        
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                目前共计 6 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Class/" style="font-size: 12px; color: #ccc">Class</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/iOS/" style="font-size: 21px; color: #6f6f6f">iOS</a> <a href="/tags/push/" style="font-size: 30px; color: #111">push</a> <a href="/tags/模拟/" style="font-size: 12px; color: #ccc">模拟</a> <a href="/tags/证书/" style="font-size: 12px; color: #ccc">证书</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
+        <p><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a03441753c443?w=396&amp;h=215&amp;f=jpeg&amp;s=5234" alt=""></p>
+<p>开发环境下Provisioning Profile文件的创建。<br>当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。<br><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a034419938f4e?w=240&amp;h=240&amp;f=jpeg&amp;s=7699" alt=""></p>
+<ol>
+<li>通过该<code>Certificates,Identifiers&amp;Profiles</code>–&gt; <code>Provisioning Profiles</code> <code>Development</code>路径，找到Profile文件的列表页面。添加<code>+</code>准备添加新的PP文件。<br><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a034419af214f?w=1560&amp;h=1410&amp;f=jpeg&amp;s=160699" alt=""></li>
+</ol>
+<p>2.选择证书的类型，这里选择开发证书。<br><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a03441995e24f?w=1572&amp;h=774&amp;f=jpeg&amp;s=163514" alt=""></p>
+<p>3.选择APPID&amp;证书&amp;设备。</p>
+<p>  3.1 选择对应的 <code>APP ID</code><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/166a03442313878b?w=1576&amp;h=860&amp;f=jpeg&amp;s=193482" alt=""></p>
+<p>  3.2 选择对应的证书<br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/166a034424596e55?w=1572&amp;h=1040&amp;f=jpeg&amp;s=172776" alt=""></p>
+<p>  3.3 选择可以安装软件的设备号，设备号也就是每个硬件设备的序列号。<br><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a0344b02f0e54?w=1578&amp;h=1434&amp;f=jpeg&amp;s=202475" alt=""></p>
+<ol start="4">
+<li>填写这个PP文件的名称。</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/10/23/166a0344b03ead74?w=1576&amp;h=844&amp;f=jpeg&amp;s=168356" alt=""></p>
+<ol start="5">
+<li>走到这步，说明已经安装成功。点击按钮<code>Download</code>就可以下载了。</li>
+</ol>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fwi9kmpldyj317y0r4tdd.jpg" alt=""></p>
+<p>over，是不是很简单。正式环境的PP文件，也是大同小异。有时间也出篇教程。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+   
+    <div>
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+
+    </div>
+  
+
+  
+    <div>
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/23/开发环境下PP文件的创建/">开发环境下PP文件的创建</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
+  <p><span>发布时间:</span>2018年10月23日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月23日 - 17:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/23/开发环境下PP文件的创建/" title="开发环境下PP文件的创建">http://www.wunan520.cn/2018/10/23/开发环境下PP文件的创建/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/23/开发环境下PP文件的创建/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    </div>
+  
+
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EmilyWu wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="EmilyWu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="EmilyWu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/23/iOS开发实用软件之NWPusher/" rel="next" title="iOS开发实用软件之NWPusher">
+                <i class="fa fa-chevron-left"></i> iOS开发实用软件之NWPusher
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDE1MC8xNjY3Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -832,6 +1011,20 @@
 
 
 
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/10/23/开发环境下PP文件的创建/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
