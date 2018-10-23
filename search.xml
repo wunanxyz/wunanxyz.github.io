@@ -4,6 +4,14 @@
     <title><![CDATA[开发环境下PP文件的创建]]></title>
     <url>%2F2018%2F10%2F23%2F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8BPP%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[开发环境下Provisioning Profile文件的创建。当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。 通过该Certificates,Identifiers&amp;Profiles–&gt; Provisioning Profiles Development路径，找到Profile文件的列表页面。添加+准备添加新的PP文件。 2.选择证书的类型，这里选择开发证书。 3.选择APPID&amp;证书&amp;设备。 3.1 选择对应的 APP ID 3.2 选择对应的证书 3.3 选择可以安装软件的设备号，设备号也就是每个硬件设备的序列号。 填写这个PP文件的名称。 走到这步，说明已经安装成功。点击按钮Download就可以下载了。 over，是不是很简单。正式环境的PP文件，也是大同小异。有时间也出篇教程。]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>PP文件</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>PP文件</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS开发实用软件之NWPusher]]></title>
