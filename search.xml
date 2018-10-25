@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Swift代理协议的安全使用]]></title>
+    <url>%2F2018%2F10%2F25%2FSwift%E4%BB%A3%E7%90%86%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%AE%89%E5%85%A8%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[文章Swift代理协议的安全使用 概述在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。 前言可空链式调用（Optional Chaining）是一种可以请求和调用属性、方法及下标的过程，它的可空性体现于请求或调用的目标当前可能为空（nil）。如果可空的目标有值，那么调用就会成功；如果选择的目标为空（nil），那么这种调用将返回空（nil）。多个连续的调用可以被链接在一起形成一个调用链，如果其中任何一个节点为空（nil）将导致整个链调用失败。 注意： Swift 的可空链式调用和 Objective-C 中的消息为空有些相像，但是 Swift 可以使用在任意类型中，并且能够检查调用是否成功。 空链式（Optional Chaining）的使用之一在Swift中空链式的有个实用例子，就是编写代理的时候。当触发协议方法的时候，因为OC是消息型语言，所以必须要判断这个实例是否存在并且要判断当前方法是否被实现，不然没有实现的话，Runtime期间，就可能会报错。又因为OC几乎所以的类都是继承基类NSObject，而根类NSObject实现了其协议NSObject的协议方法respondsToSelector:,该方法可以判断某个方法实现的。如下 1234// 判断添加了代理对象，并且该对象实现了某个协议方法if (self.delegate &amp;&amp; [self.delegate respondsToSelector:@selector(protocalMethod)]) &#123; [self.delegate protocalMethod];&#125; 而在Swift语言中，并未要求继承某个根类。并且也未提供某个方法去不判断某个方法是否被实现。其实因为Swift的语言一个特性–可选性，就很好解决这些问题了。正如上方的描述，如果其中任何一个节点为空（nil）将导致整个链调用失败。如下1self.delegate?.SwiftProtocolTest?() 当判读使用有代理对象的时候，只需在属性delegate添加”?”就行，而需要判断某个函数是否实现只需在函数名和()之间添加”?”就行。 提示：本文delegate在Swift和OC的对比可以查看 github 代码 友情提示： Apple-optional文档 using_delegates_to_customize_object_behavior]]></content>
+      <categories>
+        <category>iOS</category>
+        <category>Swift</category>
+        <category>delegate</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>Swift</tag>
+        <tag>delegate</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[开发环境下PP文件的创建]]></title>
     <url>%2F2018%2F10%2F23%2F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8BPP%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[开发环境下Provisioning Profile文件的创建。当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。 通过该Certificates,Identifiers&amp;Profiles–&gt; Provisioning Profiles Development路径，找到Profile文件的列表页面。添加+准备添加新的PP文件。 2.选择证书的类型，这里选择开发证书。 3.选择APPID&amp;证书&amp;设备。 3.1 选择对应的 APP ID 3.2 选择对应的证书 3.3 选择可以安装软件的设备号，设备号也就是每个硬件设备的序列号。 填写这个PP文件的名称。 走到这步，说明已经安装成功。点击按钮Download就可以下载了。 over，是不是很简单。正式环境的PP文件，也是大同小异。有时间也出篇教程。]]></content>
+    <content type="text"><![CDATA[开发环境下Provisioning Profile文件的创建。当我们在做iOS开发的时候,总是添加很多证书，来保证安全性。Provisioning Profile我们又称PP文件。这个文件将证书、App Id和设备相关联。本章节就是教大家如何创建开发环境下的PP文件。 通过该Certificates,Identifiers&amp;Profiles–&gt; Provisioning Profiles–&gt; Development路径，找到Profile文件的列表页面。添加+准备添加新的PP文件。 2.选择证书的类型，这里选择开发证书。 3.选择APPID&amp;证书&amp;设备。 3.1 选择对应的 APP ID 3.2 选择对应的证书 3.3 选择可以安装软件的设备号，设备号也就是每个硬件设备的序列号。 填写这个PP文件的名称。 走到这步，说明已经安装成功。点击按钮Download就可以下载了。 over，是不是很简单。正式环境的PP文件，也是大同小异。有时间也出篇教程。]]></content>
       <categories>
         <category>iOS</category>
         <category>PP文件</category>
