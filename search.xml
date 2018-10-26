@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[异常处理Try_Catch的使用之初见]]></title>
-    <url>%2F2018%2F10%2F26%2F%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86Try-Catch%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B9%8B%E5%88%9D%E8%A7%81%2F</url>
+    <title><![CDATA[Swift4异常处理Try_Catch的使用之初见]]></title>
+    <url>%2F2018%2F10%2F26%2FSwift4%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86Try-Catch%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B9%8B%E5%88%9D%E8%A7%81%2F</url>
     <content type="text"><![CDATA[前言从OC转Swift了。虽然Swift的官方语法的资料看了2遍了。还是在使用的时候遇到点问题。好记性，不如烂笔头。本篇不是高深的内容。只是作为初使用的记录。 当想给一个函数使用try-catch。需要在函数后加个throws。具体使用，如下先有个错误的枚举1234enum ErrorType:Error&#123; case ErrorTypeNil case ErrorType1&#125; 这里需要函数出错会抛出错误的情况，记住后面要加throws。 123456789func largerThanEighteenthFunc(a:Int16?) throws &#123; if let need = a ,need &gt;= 18&#123; print("need &gt;&gt;&gt;&gt; \(need)") throw ErrorType.ErrorTypeNil &#125;else&#123; print("need &lt;=18") throw ErrorType.ErrorType1 &#125;&#125; 不需要捕抓错误，可以使用try!或try?。但是不建议不建议使用try!，使用try?会更加安全。因为如果当有错误捕抓到时，程序会直接崩溃123func notPrintError() &#123; try? largerThanEighteenthFunc(a: nil) &#125; 如果只包含一个catch语句，那么所有的错误都会在这个catch中执行，能够捕抓其错误信息 1234567func oneCondition() &#123; do &#123; try largerThanEighteenthFunc(a: 9) &#125; catch let error &#123; print("error &gt;&gt;&gt; \(error)") &#125; &#125; 在使用catch时，我们想它是能够进行模式匹配的、能够进行更精准的错误匹配处理。可以穷举多种情况。12345678910func twoCondition() &#123; do &#123; try largerThanEighteenthFunc(a: 20) &#125; catch ErrorType.ErrorTypeNil &#123; print(ErrorType.ErrorTypeNil) &#125; catch ErrorType.ErrorType1 &#123; print(ErrorType.ErrorType1) &#125; catch &#123; // 加入一个空的catch，用于关闭catch。否则会报错：Errors thrown from here are not handled because the enclosing catch is not exhaustive &#125;&#125; 注意：在使用do-catch的时候。无论是不是把错误都穷举完，一定要写个空catch，不然会报错。这个错误就是 Errors thrown from here are not handled because the enclosing catch is not exhaustive 友情连接： 本文代码的github地址]]></content>
       <categories>
         <category>Swift</category>
