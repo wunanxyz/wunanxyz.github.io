@@ -115,21 +115,20 @@
 
 
 
-  <meta name="description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
-<meta name="keywords" content="iOS,push">
+  <meta name="description" content="概述:查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
+<meta name="keywords" content="iOS,bug">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS推送系列之Push的工作原理">
-<meta property="og:url" content="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/index.html">
+<meta property="og:title" content="iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
+<meta property="og:url" content="http://www.wunan520.cn/2018/10/29/iOS模拟器/index.html">
 <meta property="og:site_name" content="吴楠的小栈">
-<meta property="og:description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
+<meta property="og:description" content="概述:查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1683361-36e756ff58c58570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-22T08:08:55.333Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fwoujzh8gdj30na071t9e.jpg">
+<meta property="og:updated_time" content="2018-10-29T02:21:09.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS推送系列之Push的工作原理">
-<meta name="twitter:description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
+<meta name="twitter:description" content="概述:查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fwoujzh8gdj30na071t9e.jpg">
 
 
 
@@ -138,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/"/>
+  <link rel="canonical" href="http://www.wunan520.cn/2018/10/29/iOS模拟器/"/>
 
 
 
@@ -148,7 +147,7 @@
   };
 </script>
 
-  <title>iOS推送系列之Push的工作原理 | 吴楠的小栈</title>
+  <title>iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.) | 吴楠的小栈</title>
   
 
 
@@ -373,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/">
+    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/10/29/iOS模拟器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EmilyWu">
@@ -390,7 +389,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS推送系列之Push的工作原理
+          <h1 class="post-title" itemprop="name headline">iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)
               
             
           </h1>
@@ -415,24 +414,12 @@
                 
               
 
-              <time title="创建时间：2018-10-17 11:40:53" itemprop="dateCreated datePublished" datetime="2018-10-17T11:40:53+08:00">2018-10-17</time>
+              <time title="创建时间：2018-10-29 09:59:40 / 修改时间：10:21:09" itemprop="dateCreated datePublished" datetime="2018-10-29T09:59:40+08:00">2018-10-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-22 16:08:55" itemprop="dateModified" datetime="2018-10-22T16:08:55+08:00">2018-10-22</time>
               
             
           </span>
@@ -456,7 +443,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/push/" itemprop="url" rel="index"><span itemprop="name">push</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/bug/" itemprop="url" rel="index"><span itemprop="name">bug</span></a></span>
 
                 
                 
@@ -477,7 +464,7 @@
 
           
               <div class="post-description"><p style="color: #333333">
-概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。
+概述:查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)
 </p>
 </div>
           
@@ -495,35 +482,12 @@
       
 
       
-        <h3 id="Push的工作原理"><a href="#Push的工作原理" class="headerlink" title="Push的工作原理"></a>Push的工作原理</h3><p>  要理解Push的工作原理，我们必须要知道几个知识点。</p>
-<ul>
-<li>设备是如何和APNs保持连接的。</li>
-<li>APNs如何识别需要推送的设备。</li>
-</ul>
-<p>&emsp;&emsp;APNs可以推送给设备Push消息，是因为设备(iPhone、iPad)和APNs有一个长连接的通道。<br>&emsp;&emsp;iOS的Push通道是一个独立的长连接通道，并且是唯一的一个通道，由iOS系统独立维护。也就是说每一个手机系统，每次开机后，手机后台就会发出一个长连接，连接到苹果服务器(APNs)。<br>当APNs收到新的Push通知的时候就会把通知推送给应用设备。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="苹果官方网站的原理图"></p>
-<p>通过官方的原理图四个身份</p>
-<ul>
-<li>Provider：我们的服务器sever</li>
-<li>APNs：苹果服务器</li>
-<li>Device(设备)：iPhone、iPad</li>
-<li>Client App：客户端的app</li>
-</ul>
-<p><strong>Tip</strong>：苹果可以省电省流量，原因之一有<strong>Push网络通道是唯一的一个</strong>，并且苹果公司来维护。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683361-36e756ff58c58570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push的工作原理"></p>
-<p>总结下大致流程</p>
-<ol>
-<li>设备打开某个App后，会生成唯一的<strong>一个token</strong>，并把这个token上传给我们自己的服务器，我们的服务器有了token，就可以向我们的app推送通知了，这个是前提。但是这个通知并不能直接推送给我们的设备，而是要推送给苹果的服务器。</li>
-<li>我们的服务器会将token和推送的内容，一起推送给苹果的服务器。</li>
-<li>苹果服务器会根据token定位到设备,将push推送给设备。</li>
-<li>设备拿到这个push，就会知道是哪个app。然后就可以将这个通知推送到具体的app。</li>
-</ol>
-<p>参考资料</p>
-<ul>
-<li><a href="https://www.imooc.com/video/15117" target="_blank" rel="noopener">push工作原理</a></li>
-<li><a href="https://developer.apple.com/documentation/usernotifications?language=objc" target="_blank" rel="noopener">苹果官方push内容</a></li>
-<li><a href="http://www.open-open.com/lib/view/open1462951879679.html" target="_blank" rel="noopener">iOS远程推送原理及实现过程</a></li>
-</ul>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，如下</p>
+<blockquote>
+<p>The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</p>
+</blockquote>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fwoujzh8gdj30na071t9e.jpg" alt="XCode提示的错误"></p>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>重新启动mac</p>
 
       
     </div>
@@ -555,12 +519,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/17/PrincipleOfPush/">iOS推送系列之Push的工作原理</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/29/iOS模拟器/">iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
-  <p><span>发布时间:</span>2018年10月17日 - 11:10</p>
-  <p><span>最后更新:</span>2018年10月22日 - 16:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/17/PrincipleOfPush/" title="iOS推送系列之Push的工作原理">http://www.wunan520.cn/2018/10/17/PrincipleOfPush/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年10月29日 - 09:10</p>
+  <p><span>最后更新:</span>2018年10月29日 - 10:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/29/iOS模拟器/" title="iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">http://www.wunan520.cn/2018/10/29/iOS模拟器/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/29/iOS模拟器/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -631,7 +595,7 @@
           
             <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/push/" rel="tag"><i class="fa fa-tag"></i> push</a>
+            <a href="/tags/bug/" rel="tag"><i class="fa fa-tag"></i> bug</a>
           
         </div>
       
@@ -644,15 +608,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/26/Swift4异常处理Try-Catch的使用之初见/" rel="next" title="Swift4异常处理Try_Catch的使用之初见">
+                <i class="fa fa-chevron-left"></i> Swift4异常处理Try_Catch的使用之初见
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/17/Swift中Class和Struct异同/" rel="prev" title="Swift中Class和Struct异同">
-                Swift中Class和Struct异同 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -917,7 +881,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Push的工作原理"><span class="nav-number">1.</span> <span class="nav-text">Push的工作原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案："><span class="nav-number">2.</span> <span class="nav-text">解决方案：</span></a></li></ol></div>
             
 
           </div>
@@ -1105,7 +1069,7 @@
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: '2018/10/17/PrincipleOfPush/'
+        refer: '2018/10/29/iOS模拟器/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];

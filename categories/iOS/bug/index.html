@@ -115,21 +115,16 @@
 
 
 
-  <meta name="description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
-<meta name="keywords" content="iOS,push">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS推送系列之Push的工作原理">
-<meta property="og:url" content="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/index.html">
+  <meta name="description" content="learn &amp; record &amp;share">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吴楠的小栈">
+<meta property="og:url" content="http://www.wunan520.cn/categories/iOS/bug/index.html">
 <meta property="og:site_name" content="吴楠的小栈">
-<meta property="og:description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
+<meta property="og:description" content="learn &amp; record &amp;share">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1683361-36e756ff58c58570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-22T08:08:55.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS推送系列之Push的工作原理">
-<meta name="twitter:description" content="概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="吴楠的小栈">
+<meta name="twitter:description" content="learn &amp; record &amp;share">
 
 
 
@@ -138,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/"/>
+  <link rel="canonical" href="http://www.wunan520.cn/categories/iOS/bug/"/>
 
 
 
@@ -148,7 +143,7 @@
   };
 </script>
 
-  <title>iOS推送系列之Push的工作原理 | 吴楠的小栈</title>
+  <title>分类: bug | 吴楠的小栈</title>
   
 
 
@@ -195,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
     <!-- 添加的额外的内容 开始-->
     <a href="https://github.com/wunanxyz" class="github-corner" aria-label="View source on GitHub">
@@ -265,7 +260,7 @@
         
         
           
-          <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-categories menu-item-active">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -353,335 +348,88 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>bug<small>分类</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="EmilyWu">
-      <meta itemprop="description" content="learn & record &share">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴楠的小栈">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/10/29/iOS模拟器/" itemprop="url">
+              
+                <span itemprop="name">iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">iOS推送系列之Push的工作原理
-              
-            
-          </h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-17 11:40:53" itemprop="dateCreated datePublished" datetime="2018-10-17T11:40:53+08:00">2018-10-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-22 16:08:55" itemprop="dateModified" datetime="2018-10-22T16:08:55+08:00">2018-10-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/push/" itemprop="url" rel="index"><span itemprop="name">push</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-              <div class="post-description"><p style="color: #333333">
-概述:	iOS的Push的原理。关于设备如何和APNs建立连接。整个推送的步骤等，一网打尽。
-</p>
-</div>
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="Push的工作原理"><a href="#Push的工作原理" class="headerlink" title="Push的工作原理"></a>Push的工作原理</h3><p>  要理解Push的工作原理，我们必须要知道几个知识点。</p>
-<ul>
-<li>设备是如何和APNs保持连接的。</li>
-<li>APNs如何识别需要推送的设备。</li>
-</ul>
-<p>&emsp;&emsp;APNs可以推送给设备Push消息，是因为设备(iPhone、iPad)和APNs有一个长连接的通道。<br>&emsp;&emsp;iOS的Push通道是一个独立的长连接通道，并且是唯一的一个通道，由iOS系统独立维护。也就是说每一个手机系统，每次开机后，手机后台就会发出一个长连接，连接到苹果服务器(APNs)。<br>当APNs收到新的Push通知的时候就会把通知推送给应用设备。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683361-b84ca1f2f30f0748.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="苹果官方网站的原理图"></p>
-<p>通过官方的原理图四个身份</p>
-<ul>
-<li>Provider：我们的服务器sever</li>
-<li>APNs：苹果服务器</li>
-<li>Device(设备)：iPhone、iPad</li>
-<li>Client App：客户端的app</li>
-</ul>
-<p><strong>Tip</strong>：苹果可以省电省流量，原因之一有<strong>Push网络通道是唯一的一个</strong>，并且苹果公司来维护。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/1683361-36e756ff58c58570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push的工作原理"></p>
-<p>总结下大致流程</p>
-<ol>
-<li>设备打开某个App后，会生成唯一的<strong>一个token</strong>，并把这个token上传给我们自己的服务器，我们的服务器有了token，就可以向我们的app推送通知了，这个是前提。但是这个通知并不能直接推送给我们的设备，而是要推送给苹果的服务器。</li>
-<li>我们的服务器会将token和推送的内容，一起推送给苹果的服务器。</li>
-<li>苹果服务器会根据token定位到设备,将push推送给设备。</li>
-<li>设备拿到这个push，就会知道是哪个app。然后就可以将这个通知推送到具体的app。</li>
-</ol>
-<p>参考资料</p>
-<ul>
-<li><a href="https://www.imooc.com/video/15117" target="_blank" rel="noopener">push工作原理</a></li>
-<li><a href="https://developer.apple.com/documentation/usernotifications?language=objc" target="_blank" rel="noopener">苹果官方push内容</a></li>
-<li><a href="http://www.open-open.com/lib/view/open1462951879679.html" target="_blank" rel="noopener">iOS远程推送原理及实现过程</a></li>
-</ul>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-   
-    <div>
-    <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-
-
-    </div>
-  
-
-  
-    <div>
-          
-<div class="my_post_copyright">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/17/PrincipleOfPush/">iOS推送系列之Push的工作原理</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
-  <p><span>发布时间:</span>2018年10月17日 - 11:10</p>
-  <p><span>最后更新:</span>2018年10月22日 - 16:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/17/PrincipleOfPush/" title="iOS推送系列之Push的工作原理">http://www.wunan520.cn/2018/10/17/PrincipleOfPush/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/17/PrincipleOfPush/"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-      $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success", 
-          showConfirmButton: true
-          });
-        });
-    });  
-</script>
-
-    </div>
-  
-
-
-    
-      <div>
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EmilyWu wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
-</div>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-10-29T09:59:40+08:00"
+              content="2018-10-29" >
+          10-29
+        </time>
       </div>
-    
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="EmilyWu 微信支付"/>
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/uploads/alipay.png" alt="EmilyWu 支付宝"/>
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
-          
-            <a href="/tags/push/" rel="tag"><i class="fa fa-tag"></i> push</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/17/Swift中Class和Struct异同/" rel="prev" title="Swift中Class和Struct异同">
-                Swift中Class和Struct异同 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+    </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDE1MC8xNjY3Nw=="></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -702,17 +450,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -908,22 +647,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Push的工作原理"><span class="nav-number">1.</span> <span class="nav-text">Push的工作原理</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -1086,10 +809,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
-
-
 
   
 
@@ -1102,20 +821,6 @@
 
 
 
-  
-    <script type="text/javascript">
-      window.livereOptions = {
-        refer: '2018/10/17/PrincipleOfPush/'
-      };
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 

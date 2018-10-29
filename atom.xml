@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wunan520.cn/"/>
-  <updated>2018-10-26T03:07:38.167Z</updated>
+  <updated>2018-10-29T02:21:09.634Z</updated>
   <id>http://www.wunan520.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</title>
+    <link href="http://www.wunan520.cn/2018/10/29/iOS%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
+    <id>http://www.wunan520.cn/2018/10/29/iOS模拟器/</id>
+    <published>2018-10-29T01:59:40.000Z</published>
+    <updated>2018-10-29T02:21:09.634Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，如下</p><blockquote><p>The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</p></blockquote><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fwoujzh8gdj30na071t9e.jpg" alt="XCode提示的错误"></p><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>重新启动mac</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p style=&quot;color: #333333&quot;&gt;
+概述:查看磁盘空间的时候，发现系统磁盘消耗太多空间。而且显示是系统消耗的。然后就大举的删除了很多关了XCode和模拟器本地资源。然后运行XCode。发现模拟器一直调不出来，并且XCode提示这个错误，The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)
+&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://www.wunan520.cn/categories/iOS/"/>
+    
+      <category term="bug" scheme="http://www.wunan520.cn/categories/iOS/bug/"/>
+    
+    
+      <category term="iOS" scheme="http://www.wunan520.cn/tags/iOS/"/>
+    
+      <category term="bug" scheme="http://www.wunan520.cn/tags/bug/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift4异常处理Try_Catch的使用之初见</title>
