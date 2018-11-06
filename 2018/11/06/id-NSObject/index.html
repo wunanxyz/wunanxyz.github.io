@@ -115,20 +115,20 @@
 
 
 
-  <meta name="description" content="概述: 在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。">
-<meta name="keywords" content="iOS,Swift,delegate">
+  <meta name="description" content="概述:作为万能类型id类型，和大多数OC对象的基类的对比。">
+<meta name="keywords" content="iOS,OC,id">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift代理协议的安全使用">
-<meta property="og:url" content="http://www.wunan520.cn/2018/10/25/Swift代理协议的安全使用/index.html">
+<meta property="og:title" content="知识点：id和NSObject *对比，以及id &lt;NSObject&gt;介绍">
+<meta property="og:url" content="http://www.wunan520.cn/2018/11/06/id-NSObject/index.html">
 <meta property="og:site_name" content="吴楠的小栈">
-<meta property="og:description" content="概述: 在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。">
+<meta property="og:description" content="概述:作为万能类型id类型，和大多数OC对象的基类的对比。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fwk840t3k2j30vi0frglr.jpg">
-<meta property="og:updated_time" content="2018-10-25T03:14:58.462Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1683361-1fdaa748420739f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-06T05:43:03.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift代理协议的安全使用">
-<meta name="twitter:description" content="概述: 在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fwk840t3k2j30vi0frglr.jpg">
+<meta name="twitter:title" content="知识点：id和NSObject *对比，以及id &lt;NSObject&gt;介绍">
+<meta name="twitter:description" content="概述:作为万能类型id类型，和大多数OC对象的基类的对比。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1683361-1fdaa748420739f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wunan520.cn/2018/10/25/Swift代理协议的安全使用/"/>
+  <link rel="canonical" href="http://www.wunan520.cn/2018/11/06/id-NSObject/"/>
 
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>Swift代理协议的安全使用 | 吴楠的小栈</title>
+  <title>知识点：id和NSObject *对比，以及id <NSObject>介绍 | 吴楠的小栈</title>
   
 
 
@@ -372,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/10/25/Swift代理协议的安全使用/">
+    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/11/06/id-NSObject/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="EmilyWu">
@@ -389,7 +389,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift代理协议的安全使用
+          <h1 class="post-title" itemprop="name headline">知识点：id和NSObject *对比，以及id <NSObject>介绍
               
             
           </h1>
@@ -414,7 +414,7 @@
                 
               
 
-              <time title="创建时间：2018-10-25 10:59:24 / 修改时间：11:14:58" itemprop="dateCreated datePublished" datetime="2018-10-25T10:59:24+08:00">2018-10-25</time>
+              <time title="创建时间：2018-11-06 13:38:25 / 修改时间：13:43:03" itemprop="dateCreated datePublished" datetime="2018-11-06T13:38:25+08:00">2018-11-06</time>
             
 
             
@@ -443,14 +443,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/Swift/delegate/" itemprop="url" rel="index"><span itemprop="name">delegate</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/OC/id/" itemprop="url" rel="index"><span itemprop="name">id</span></a></span>
 
                 
                 
@@ -471,7 +471,7 @@
 
           
               <div class="post-description"><p style="color: #333333">
-概述: 在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。
+概述:作为万能类型id类型，和大多数OC对象的基类的对比。
 </p>
 </div>
           
@@ -489,22 +489,25 @@
       
 
       
-        <h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>Swift代理协议的安全使用</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fwk840t3k2j30vi0frglr.jpg" alt=""></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Swift下，使用代理协议，并且检验代理对象的存在和协议函数是否被实现。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可空链式调用（Optional Chaining）是一种可以请求和调用属性、方法及下标的过程，它的可空性体现于请求或调用的目标当前可能为空（nil）。如果可空的目标有值，那么调用就会成功；如果选择的目标为空（nil），那么这种调用将返回空（nil）。多个连续的调用可以被链接在一起形成一个调用链，如果其中任何一个节点为空（nil）将导致整个链调用失败。</p>
-<blockquote>
-<p>注意： Swift 的可空链式调用和 Objective-C 中的消息为空有些相像，但是 Swift 可以使用在任意类型中，并且能够检查调用是否成功。</p>
-</blockquote>
-<h2 id="空链式（Optional-Chaining）的使用之一"><a href="#空链式（Optional-Chaining）的使用之一" class="headerlink" title="空链式（Optional Chaining）的使用之一"></a>空链式（Optional Chaining）的使用之一</h2><p>在Swift中空链式的有个实用例子，就是编写代理的时候。当触发协议方法的时候，因为OC是消息型语言，所以必须要判断这个实例是否存在并且要判断当前方法是否被实现，不然没有实现的话，Runtime期间，就可能会报错。又因为OC几乎所以的类都是继承基类NSObject，而根类<code>NSObject</code>实现了其协议<code>NSObject</code>的协议方法<code>respondsToSelector:</code>,该方法可以判断某个方法实现的。如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 判断添加了代理对象，并且该对象实现了某个协议方法</span><br><span class="line">if (self.delegate &amp;&amp; [self.delegate respondsToSelector:@selector(protocalMethod)]) &#123;</span><br><span class="line">    [self.delegate protocalMethod];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而在Swift语言中，并未要求继承某个根类。并且也未提供某个方法去不判断某个方法是否被实现。其实因为Swift的语言一个特性–可选性，就很好解决这些问题了。正如上方的描述，如果其中任何一个节点为空（nil）将导致整个链调用失败。如下<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.delegate?.<span class="type">SwiftProtocolTest</span>?()</span><br></pre></td></tr></table></figure></p>
-<p>当判读使用有代理对象的时候，只需在属性<code>delegate</code>添加”?”就行，而需要判断某个函数是否实现只需在函数名和()之间添加”?”就行。</p>
-<p>提示：本文delegate在Swift和OC的对比可以查看 <a href="https://github.com/wunanxyz/SwiftDelegateUsage.git" target="_blank" rel="noopener">github 代码</a></p>
-<p>友情提示：</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1683361-1fdaa748420739f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>在obj.h的类文件中，可以看出id类型和NSObject类型的信息。如下：</p>
+<p><strong>类 id</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/// An opaque type(隐含类型) that represents an Objective-C class.</span><br><span class="line">typedef struct objc_class *Class;</span><br><span class="line">/// Represents an instance of a class.</span><br><span class="line">struct objc_object &#123;</span><br><span class="line">    Class _Nonnull isa ;</span><br><span class="line">&#125;;</span><br><span class="line">/// A pointer to an instance of a class.</span><br><span class="line">typedef struct objc_object *id;</span><br></pre></td></tr></table></figure></p>
+<p><strong>类 NSObject</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface NSObject &lt;NSObject&gt; &#123;</span><br><span class="line">    Class isa ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>协议 NSObject</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@protocol NSObject</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p><strong>类 NSProxy</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface NSProxy &lt;NSObject&gt; &#123;</span><br><span class="line">    Class	isa;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>id和NSObject对比</li>
+</ol>
 <ul>
-<li><a href="https://developer.apple.com/documentation/swift/optional" target="_blank" rel="noopener">Apple-optional文档</a></li>
-<li><a href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_delegates_to_customize_object_behavior" target="_blank" rel="noopener">using_delegates_to_customize_object_behavior</a></li>
+<li>从上面的源码可以看出，id是struct objc_object结构体指针,可以指向任何OC对象，当然不包括NSInteger等，因为这些数据类型不是OC对象。另外OC的基类，其实不仅仅就NSObject一个，虽然NSObject是绝大数OC对象的基类，但是还有个NSProxy虚类。<br>所以不能说id类型和<code>NSObject *</code>是等价的。</li>
+<li>id类型的实例在编译阶段不会做类型检测，会在运行时确定，所以id类型是运行时的动态类型。类NSObject的实例会编译期要做编译检查，保证指针指向是其NSObject类或其子类，当然实例的具体类型要在运行期确定，这也是iOS的多态的体现。</li>
+<li>id指针的会有局限性：调用方法,只能使用中括弧，不能使用点语法。</li>
+</ul>
+<ol start="2">
+<li>id \<nsobject> 是什么呢？<br>这里的<code>NSObject</code>是协议NSObject(protocol)而非类NSObject。所以这里表示是遵守协议NSObject的所以类。另外NSObject类和NSProxy类都是实现了协议NSObject。</nsobject></li>
+</ol>
+<p>不错的推荐：</p>
+<ul>
+<li><a href="https://opensource.apple.com/tarballs/objc4/" target="_blank" rel="noopener">oc runtime源码</a> 版本 <a href="https://opensource.apple.com/tarballs/objc4/objc4-723.tar.gz" target="_blank" rel="noopener">objc4-723</a></li>
 </ul>
 
       
@@ -537,12 +540,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/25/Swift代理协议的安全使用/">Swift代理协议的安全使用</a></p>
+  <p><span>本文标题:</span><a href="/2018/11/06/id-NSObject/">知识点：id和NSObject *对比，以及id <NSObject>介绍</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
-  <p><span>发布时间:</span>2018年10月25日 - 10:10</p>
-  <p><span>最后更新:</span>2018年10月25日 - 11:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/25/Swift代理协议的安全使用/" title="Swift代理协议的安全使用">http://www.wunan520.cn/2018/10/25/Swift代理协议的安全使用/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/10/25/Swift代理协议的安全使用/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年11月06日 - 13:11</p>
+  <p><span>最后更新:</span>2018年11月06日 - 13:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/06/id-NSObject/" title="知识点：id和NSObject *对比，以及id <NSObject>介绍">http://www.wunan520.cn/2018/11/06/id-NSObject/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/11/06/id-NSObject/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -613,9 +616,9 @@
           
             <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
           
-            <a href="/tags/delegate/" rel="tag"><i class="fa fa-tag"></i> delegate</a>
+            <a href="/tags/id/" rel="tag"><i class="fa fa-tag"></i> id</a>
           
         </div>
       
@@ -628,8 +631,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/23/开发环境下PP文件的创建/" rel="next" title="开发环境下PP文件的创建">
-                <i class="fa fa-chevron-left"></i> 开发环境下PP文件的创建
+              <a href="/2018/10/29/iOS模拟器/" rel="next" title="iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)">
+                <i class="fa fa-chevron-left"></i> iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)
               </a>
             
           </div>
@@ -637,10 +640,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/26/Swift4异常处理Try-Catch的使用之初见/" rel="prev" title="Swift4异常处理Try_Catch的使用之初见">
-                Swift4异常处理Try_Catch的使用之初见 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,17 +689,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -904,22 +894,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-number">1.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">3.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空链式（Optional-Chaining）的使用之一"><span class="nav-number">4.</span> <span class="nav-text">空链式（Optional Chaining）的使用之一</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -1101,7 +1075,7 @@
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: '2018/10/25/Swift代理协议的安全使用/'
+        refer: '2018/11/06/id-NSObject/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
