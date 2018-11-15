@@ -115,16 +115,21 @@
 
 
 
-  <meta name="description" content="learn &amp; record &amp;share">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴楠的小栈">
-<meta property="og:url" content="http://www.wunan520.cn/archives/2018/index.html">
+  <meta name="description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
+<meta name="keywords" content="iOS,OC,NSMutableArray">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识点：可变数组的属性使用copy修饰的后果">
+<meta property="og:url" content="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/index.html">
 <meta property="og:site_name" content="吴楠的小栈">
-<meta property="og:description" content="learn &amp; record &amp;share">
+<meta property="og:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&h=216&f=jpeg&s=21704">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&h=254&f=jpeg&s=36182">
+<meta property="og:updated_time" content="2018-11-15T23:36:30.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴楠的小栈">
-<meta name="twitter:description" content="learn &amp; record &amp;share">
+<meta name="twitter:title" content="知识点：可变数组的属性使用copy修饰的后果">
+<meta name="twitter:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&h=216&f=jpeg&s=21704">
 
 
 
@@ -133,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://www.wunan520.cn/archives/2018/"/>
+  <link rel="canonical" href="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/"/>
 
 
 
@@ -143,7 +148,7 @@
   };
 </script>
 
-  <title>归档 | 吴楠的小栈</title>
+  <title>知识点：可变数组的属性使用copy修饰的后果 | 吴楠的小栈</title>
   
 
 
@@ -190,7 +195,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <!-- 添加的额外的内容 开始-->
     <a href="https://github.com/wunanxyz" class="github-corner" aria-label="View source on GitHub">
@@ -268,7 +273,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -348,446 +353,317 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="EmilyWu">
+      <meta itemprop="description" content="learn & record &share">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴楠的小栈">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">知识点：可变数组的属性使用copy修饰的后果
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-16 07:33:19 / 修改时间：07:36:30" itemprop="dateCreated datePublished" datetime="2018-11-16T07:33:19+08:00">2018-11-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
 
-      
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/OC/" itemprop="url" rel="index"><span itemprop="name">OC</span></a></span>
 
-        
-        
-        
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/OC/NSMutableArray/" itemprop="url" rel="index"><span itemprop="name">NSMutableArray</span></a></span>
 
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/" itemprop="url">
-              
-                <span itemprop="name">知识点：可变数组的属性使用copy修饰的后果</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-16T07:33:19+08:00"
-              content="2018-11-16" >
-          11-16
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+              <div class="post-description"><p style="text-align: left; color: #333333;">
+概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因
+</p>
+</div>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/15/NSThead的进阶使用和简单探讨/" itemprop="url">
-              
-                <span itemprop="name">NSThead的进阶使用和简单探讨</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-15T17:37:48+08:00"
-              content="2018-11-15" >
-          11-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/15/iOS缓存策略之NSCache的简单使用/" itemprop="url">
-              
-                <span itemprop="name">iOS缓存策略之NSCache的简单使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-15T00:27:36+08:00"
-              content="2018-11-15" >
-          11-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 视频<a href="https://developer.apple.com/videos/play/wwdc2017/411/" target="_blank" rel="noopener">What’s New in LLVM
+</a> 中，从12:05的时间开始有个关于NSMutableArray可变数组属性的使用问题。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&amp;h=216&amp;f=jpeg&amp;s=21704" alt=""><br>运行后报错图如下：<br><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&amp;h=254&amp;f=jpeg&amp;s=36182" alt=""></p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>self.photos的实际类型是 __NSMutable0,也就NSArray类型。没有addObject的方法。</p>
+<h3 id="进一步探讨："><a href="#进一步探讨：" class="headerlink" title="进一步探讨："></a>进一步探讨：</h3><ol>
+<li><p>OC是门动态型语言，在编译阶段不会做类型检测。OC的内存管理是引用计数，在ARC环境下，属性@property的内存管理语义关键字有copy,weak,strong,asssin。在编译阶段，默认情况下编译器会生成一个成员变量、一个setter方法、一个getter方法。而在setter方法中，会根据内存管理语义做相应的引用计数相关的操作。当使用copy修饰属性时，在setter中实际操作是拷贝了一份不可变的类型对象。这样的话，即使是其是可变类型，在被赋值后，我们得到的是却是不可变类型的对象。</p>
+</li>
+<li><p>OC具有多态性，父类可以指向子类。对象最终类型会在运行期根据实例化对象确认。在运行时阶段其isa指向的是[NSArray Class]。那么当向self.photos发送一个addObject消息时，self.photos对象是接收不到这个消息的。因为addObject是NSArray的子类NSMutbleArray的方法。</p>
+</li>
+</ol>
+<p>实际编译器添加setter方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ARC</span><br><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = [photos copy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么得到的是个self.Photos实际是NSArray类。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>方式一:<br>手动重写setter方法，使用赋值前mutableCopy。如下，这样获取到的就是NSMutableArray类型的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = [photos mutableCopy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方式二:<br>使用关键字<code>strong</code>修饰属性。我们得到的依然是可变类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = photos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
+    </div>
 
-        
-        
-        
+    
 
-        
-        
+    
+    
+    
 
-        
+   
+    <div>
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/06/id-NSObject/" itemprop="url">
-              
-                <span itemprop="name">知识点：id和NSObject *对比，以及id <NSObject>介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-06T13:38:25+08:00"
-              content="2018-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/29/iOS模拟器/" itemprop="url">
-              
-                <span itemprop="name">iOSBug:The operation couldn’t be completed. (DVTCoreSimulatorAdditionsErrorDomain error 0.)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-29T09:59:40+08:00"
-              content="2018-10-29" >
-          10-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/26/Swift4异常处理Try-Catch的使用之初见/" itemprop="url">
-              
-                <span itemprop="name">Swift4异常处理Try_Catch的使用之初见</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-26T11:00:05+08:00"
-              content="2018-10-26" >
-          10-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/Swift代理协议的安全使用/" itemprop="url">
-              
-                <span itemprop="name">Swift代理协议的安全使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-25T10:59:24+08:00"
-              content="2018-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/23/开发环境下PP文件的创建/" itemprop="url">
-              
-                <span itemprop="name">开发环境下PP文件的创建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-23T17:26:07+08:00"
-              content="2018-10-23" >
-          10-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/23/iOS开发实用软件之NWPusher/" itemprop="url">
-              
-                <span itemprop="name">iOS开发实用软件之NWPusher</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-23T14:08:39+08:00"
-              content="2018-10-23" >
-          10-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/22/开发环境Push证书的创建图文流程/" itemprop="url">
-              
-                <span itemprop="name">开发环境Push证书的创建图文流程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-22T15:45:44+08:00"
-              content="2018-10-22" >
-          10-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
 
     </div>
+  
+
+  
+    <div>
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/">知识点：可变数组的属性使用copy修饰的后果</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
+  <p><span>发布时间:</span>2018年11月16日 - 07:11</p>
+  <p><span>最后更新:</span>2018年11月16日 - 07:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/" title="知识点：可变数组的属性使用copy修饰的后果">http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+    </div>
+  
+
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="EmilyWu wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="EmilyWu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="EmilyWu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/OC/" rel="tag"><i class="fa fa-tag"></i> OC</a>
+          
+            <a href="/tags/NSMutableArray/" rel="tag"><i class="fa fa-tag"></i> NSMutableArray</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/15/NSThead的进阶使用和简单探讨/" rel="next" title="NSThead的进阶使用和简单探讨">
+                <i class="fa fa-chevron-left"></i> NSThead的进阶使用和简单探讨
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDE1MC8xNjY3Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -808,8 +684,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1025,6 +910,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析："><span class="nav-number">2.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进一步探讨："><span class="nav-number">3.</span> <span class="nav-text">进一步探讨：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1187,6 +1088,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
@@ -1199,6 +1104,20 @@
 
 
 
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/11/16/知识点：可变数组的属性使用copy修饰的后果/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
