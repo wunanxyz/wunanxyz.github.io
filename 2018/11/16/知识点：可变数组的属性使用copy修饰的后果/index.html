@@ -123,13 +123,14 @@
 <meta property="og:site_name" content="吴楠的小栈">
 <meta property="og:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&h=216&f=jpeg&s=21704">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&h=254&f=jpeg&s=36182">
-<meta property="og:updated_time" content="2018-11-15T23:36:30.990Z">
+<meta property="og:updated_time" content="2018-11-16T03:08:05.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识点：可变数组的属性使用copy修饰的后果">
 <meta name="twitter:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&h=216&f=jpeg&s=21704">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg">
 
 
 
@@ -415,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2018-11-16 07:33:19 / 修改时间：07:36:30" itemprop="dateCreated datePublished" datetime="2018-11-16T07:33:19+08:00">2018-11-16</time>
+              <time title="创建时间：2018-11-16 07:33:19 / 修改时间：11:08:05" itemprop="dateCreated datePublished" datetime="2018-11-16T07:33:19+08:00">2018-11-16</time>
             
 
             
@@ -490,11 +491,12 @@
       
 
       
-        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 视频<a href="https://developer.apple.com/videos/play/wwdc2017/411/" target="_blank" rel="noopener">What’s New in LLVM
+        <p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg" alt=""></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p> 视频<a href="https://developer.apple.com/videos/play/wwdc2017/411/" target="_blank" rel="noopener">What’s New in LLVM
 </a> 中，从12:05的时间开始有个关于NSMutableArray可变数组属性的使用问题。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&amp;h=216&amp;f=jpeg&amp;s=21704" alt=""><br>运行后报错图如下：<br><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&amp;h=254&amp;f=jpeg&amp;s=36182" alt=""></p>
-<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>self.photos的实际类型是 __NSMutable0,也就NSArray类型。没有addObject的方法。</p>
-<h3 id="进一步探讨："><a href="#进一步探讨：" class="headerlink" title="进一步探讨："></a>进一步探讨：</h3><ol>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>self.photos的实际类型是 __NSMutable0,也就NSArray类型。没有addObject的方法。</p>
+<h3 id="进一步探讨"><a href="#进一步探讨" class="headerlink" title="进一步探讨"></a>进一步探讨</h3><ol>
 <li><p>OC是门动态型语言，在编译阶段不会做类型检测。OC的内存管理是引用计数，在ARC环境下，属性@property的内存管理语义关键字有copy,weak,strong,asssin。在编译阶段，默认情况下编译器会生成一个成员变量、一个setter方法、一个getter方法。而在setter方法中，会根据内存管理语义做相应的引用计数相关的操作。当使用copy修饰属性时，在setter中实际操作是拷贝了一份不可变的类型对象。这样的话，即使是其是可变类型，在被赋值后，我们得到的是却是不可变类型的对象。</p>
 </li>
 <li><p>OC具有多态性，父类可以指向子类。对象最终类型会在运行期根据实例化对象确认。在运行时阶段其isa指向的是[NSArray Class]。那么当向self.photos发送一个addObject消息时，self.photos对象是接收不到这个消息的。因为addObject是NSArray的子类NSMutbleArray的方法。</p>
@@ -538,7 +540,7 @@
   <p><span>本文标题:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/">知识点：可变数组的属性使用copy修饰的后果</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
   <p><span>发布时间:</span>2018年11月16日 - 07:11</p>
-  <p><span>最后更新:</span>2018年11月16日 - 07:11</p>
+  <p><span>最后更新:</span>2018年11月16日 - 11:11</p>
   <p><span>原始链接:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/" title="知识点：可变数组的属性使用copy修饰的后果">http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/"  aria-label="复制成功！"></i></span>
   </p>
@@ -837,17 +839,17 @@
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://www.freecodecamp.cn/" target="_blank" title="fcc"><i class="fa fa-fw fa-adjust"></i>fcc</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://blog.csdn.net/wuyanan123456" target="_blank" title="csdn"><i class="fa fa-fw fa-clone"></i>csdn</a>
+                  <a href="https://blog.csdn.net/wuyanan123456" target="_blank" title="CSDN"><i class="fa fa-fw fa-clone"></i>CSDN</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://juejin.im/user/5a7d3c2ef265da4e8e78556d" target="_blank" title="掘金"><i class="fa fa-fw fa-balance-scale"></i>掘金</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.freecodecamp.cn/" target="_blank" title="fcc"><i class="fa fa-fw fa-adjust"></i>fcc</a>
                   
                 </span>
               
@@ -871,19 +873,23 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://nshipster.com" title="nshipster" target="_blank">nshipster</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="https://talk.objc.io" title="Swift Talk" target="_blank">Swift Talk</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048" title="runtime" target="_blank">runtime</a>
+                    <a href="http://nshipster.com" title="NSHipster" target="_blank">NSHipster</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank">stackoverflow</a>
+                    <a href="https://www.objc.io/" title="objc" target="_blank">objc</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048" title="Runtime" target="_blank">Runtime</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://stackoverflow.com/" title="StackOverflow" target="_blank">StackOverflow</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -919,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析："><span class="nav-number">2.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进一步探讨："><span class="nav-number">3.</span> <span class="nav-text">进一步探讨：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进一步探讨"><span class="nav-number">3.</span> <span class="nav-text">进一步探讨</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li></ol></div>
             
 
           </div>
