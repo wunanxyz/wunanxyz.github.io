@@ -123,14 +123,14 @@
 <meta property="og:site_name" content="吴楠的小栈">
 <meta property="og:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/1671a7c4f1bf32b1?w=1116&h=412&f=jpeg&s=37798">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&h=216&f=jpeg&s=21704">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&h=254&f=jpeg&s=36182">
-<meta property="og:updated_time" content="2018-11-16T03:08:05.736Z">
+<meta property="og:updated_time" content="2018-11-19T04:03:28.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识点：可变数组的属性使用copy修饰的后果">
 <meta name="twitter:description" content="概述: 可变数组的属性使用copy修饰的，在编译阶段不会奔溃，但是在运行期会奔溃，我们来分析下其原因">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/16/1671a7c4f1bf32b1?w=1116&h=412&f=jpeg&s=37798">
 
 
 
@@ -416,12 +416,24 @@
                 
               
 
-              <time title="创建时间：2018-11-16 07:33:19 / 修改时间：11:08:05" itemprop="dateCreated datePublished" datetime="2018-11-16T07:33:19+08:00">2018-11-16</time>
+              <time title="创建时间：2018-11-16 07:33:19" itemprop="dateCreated datePublished" datetime="2018-11-16T07:33:19+08:00">2018-11-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-19 12:03:28" itemprop="dateModified" datetime="2018-11-19T12:03:28+08:00">2018-11-19</time>
               
             
           </span>
@@ -491,7 +503,7 @@
       
 
       
-        <p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fx9q2n2jdoj30v00bgq3l.jpg" alt=""></p>
+        <p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671a7c4f1bf32b1?w=1116&amp;h=412&amp;f=jpeg&amp;s=37798" alt=""></p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p> 视频<a href="https://developer.apple.com/videos/play/wwdc2017/411/" target="_blank" rel="noopener">What’s New in LLVM
 </a> 中，从12:05的时间开始有个关于NSMutableArray可变数组属性的使用问题。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf6c63be?w=744&amp;h=216&amp;f=jpeg&amp;s=21704" alt=""><br>运行后报错图如下：<br><img src="https://user-gold-cdn.xitu.io/2018/11/16/16719b03bf682325?w=1040&amp;h=254&amp;f=jpeg&amp;s=36182" alt=""></p>
@@ -501,11 +513,35 @@
 </li>
 <li><p>OC具有多态性，父类可以指向子类。对象最终类型会在运行期根据实例化对象确认。在运行时阶段其isa指向的是[NSArray Class]。那么当向self.photos发送一个addObject消息时，self.photos对象是接收不到这个消息的。因为addObject是NSArray的子类NSMutbleArray的方法。</p>
 </li>
+<li><p>属性语义多种：</p>
+<ul>
+<li>原子性（Atomicity）:原子性(atomic)、非原子性(nonatomic)</li>
+<li>Setter语义（Setter Semantics）:strong,weak,copy,asssin</li>
+<li>读写属性(Writability): readwrite/readonly<br>原子性是具有线程安全的，会在属性的setter方法内部加个一个自旋锁、而非原子性是不会在setter方法中加锁的，是非线程安全的。在小型设备的上，内存空间是有限的。给属性加自旋锁是非常消耗资源的。并且不一定说使用了原子性就能保证该属性线程安全。这个仅仅是在setter方法中是安全的，这也是atomic该做的事。如果绕开setter方法使用其他的方式给属性赋值，依然是不安全的，比如使用KVC。</li>
+</ul>
+</li>
 </ol>
-<p>实际编译器添加setter方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ARC</span><br><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = [photos copy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>那么得到的是个self.Photos实际是NSArray类。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>方式一:<br>手动重写setter方法，使用赋值前mutableCopy。如下，这样获取到的就是NSMutableArray类型的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = [photos mutableCopy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li>ARC下，属性的默认语义是：<ul>
+<li>基本数据：atomic、assgin、readwrite</li>
+<li>普通的OC对象：atomic、strong、readwrite</li>
+</ul>
+</li>
+</ol>
+<p>在此情况下，实际编译器添加setter方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ARC</span><br><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    // 1. 开始加锁，非自然语言，这里不写代码了</span><br><span class="line">    _photos = [photos copy];</span><br><span class="line">    // 2. 加锁结束</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么得到的是个self.photos实际是NSArray类。</p>
+<p>从上就发现了2个问题：属性就是使用了关键字atomic、copy修饰。那么这里会加锁并且得到NSArray类的self.photos。</p>
+<blockquote>
+<p>相关概念：</p>
+<ol>
+<li>自旋锁：当上一个线程的任务没有执行完毕的时候（被锁住），那么下一个线程会一直等待（不会睡眠），当上一个线程的任务执行完毕，下一个线程会立即执行。</li>
+<li>自旋锁应用场景：<br>比较适合做一些不耗时的操作</li>
+</ol>
+</blockquote>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>1、修改copy语义在setter中默认内容：</p>
+<p>方式一:<br>手动重写setter方法，使用赋值前mutableCopy。如下，这样获取到的就是NSMutableArray类型的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = [photos mutableCopy];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>方式二:<br>使用关键字<code>strong</code>修饰属性。我们得到的依然是可变类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setPhotos:(NSMutableArray&lt;UIImage *&gt; *)photos&#123;</span><br><span class="line">    _photos = photos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、原子性修改：<br>使用：nonatomic，减少小型设备中性能消耗。</p>
 
       
     </div>
@@ -540,7 +576,7 @@
   <p><span>本文标题:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/">知识点：可变数组的属性使用copy修饰的后果</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 EmilyWu 的个人博客">EmilyWu</a></p>
   <p><span>发布时间:</span>2018年11月16日 - 07:11</p>
-  <p><span>最后更新:</span>2018年11月16日 - 11:11</p>
+  <p><span>最后更新:</span>2018年11月19日 - 12:11</p>
   <p><span>原始链接:</span><a href="/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/" title="知识点：可变数组的属性使用copy修饰的后果">http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.wunan520.cn/2018/11/16/知识点：可变数组的属性使用copy修饰的后果/"  aria-label="复制成功！"></i></span>
   </p>
@@ -638,6 +674,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/24/NSOperation的进阶使用和简单探讨/" rel="prev" title="NSOperation的进阶使用和简单探讨">
+                NSOperation的进阶使用和简单探讨 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -715,7 +755,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -760,7 +800,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -803,7 +845,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -988,7 +1032,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.8k字</span>
+  <span class="post-count">博客全站共26.5k字</span>
 </div>
 
         
