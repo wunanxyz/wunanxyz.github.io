@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/24/1674324508826ef1?w=1155&h=1080&f=jpeg&s=238102">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/24/16743245099358b9?w=2112&h=1080&f=jpeg&s=347766">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/24/1674324542a08856?w=1154&h=1080&f=jpeg&s=215471">
-<meta property="og:updated_time" content="2018-11-24T07:50:59.740Z">
+<meta property="og:updated_time" content="2018-11-24T07:57:42.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSOperation的进阶使用和简单探讨">
 <meta name="twitter:description" content="概述: iOS系统下有三个常用的多线程技术:NSTread、GCD和NSOperation。 NSOperation和NSOperationQueue是基于GCD的更高一层的封装，分别对应GCD的任务和队列，完全地面向对象。 本文就是总结NSOperation相关的知识。">
@@ -420,7 +420,7 @@
                 
               
 
-              <time title="创建时间：2018-11-24 14:48:46 / 修改时间：15:50:59" itemprop="dateCreated datePublished" datetime="2018-11-24T14:48:46+08:00">2018-11-24</time>
+              <time title="创建时间：2018-11-24 14:48:46 / 修改时间：15:57:42" itemprop="dateCreated datePublished" datetime="2018-11-24T14:48:46+08:00">2018-11-24</time>
             
 
             
@@ -754,10 +754,7 @@ NSOperation和NSOperationQueue是基于GCD的更高一层的封装，分别对�
 </ul>
 </li>
 </ul>
-<ol start="3">
-<li>KVO兼容<br>　　NSOperation类键路径实现KVO观察有:<br> isCancelled、isConcurrent、isExecuting、isFinished、isReady、dependencies、queuePriority、completionBlock</li>
-</ol>
-<p>　　如果重写start方法或对除重写 main之外的执行其他重要的NSOperation对象，则必须确保自定义对象仍然符合这些关键路径的KVO。当重写start方法时，一定需注意sExecuting和isFinished键路径。如果要支持某些依赖项，还可以重写isReady方法，直到满足自定义依赖项前强制它返回NO。 （如果实现自定义依赖关系，还想支持NSOperation类提供的默认依赖项管理系统，请确保在isReady方法中调用super）当操作对象的就绪状态更改时，为isReady键路径生成KVO通知以报告这些变化。除非重写addDependency：或removeDependency：方法，否则不需要担心为依赖关键路径生成KVO通知。虽然可以为NSOperation的其他键路径生成KVO通知，但是没需要这样做。如果需要取消操作，可以简单地调用现有的cancel方法。类似地，几乎不需要修改操作对象中的队列优先级信息。最后，除非您的操作能够动态更改其并发状态，否则不需要为isConcurrent关键路径提供KVO通知。<br>　　自己创建自动释放池，异步操作无法访问主线程的自动释放池</p>
+<p>注意：自己创建自动释放池，异步操作无法访问主线程的自动释放池</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>实现例子如下：<br>非并发的情况下需要重写main方法，并且最好添加一个init方法用于初始化数据。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">+ (instancetype)downloaderOperationWithURLPath:(NSString *)urlPath completeBlock:(CompleteBlock)completeBlock&#123;</span><br><span class="line">    WNNoCurrentOPration *op = [[WNNoCurrentOPration alloc] init];</span><br><span class="line">    op.urlPath = urlPath;</span><br><span class="line">    op.completeBlock  = completeBlock;</span><br><span class="line">    return op;</span><br><span class="line">&#125;</span><br><span class="line">// main一般只适合自定义非并发的,在里面实现想执行的任务</span><br><span class="line">- (void)main&#123;</span><br><span class="line">    // 是异步的话 就会导致访问不到当前的释放池</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        NSLog(@&quot;%s&quot;,__func__);</span><br><span class="line">        // 当处于取消操作，不执行任务功能</span><br><span class="line">        if (self.isCancelled) return;</span><br><span class="line">        // 下载图片的耗时操作</span><br><span class="line">        NSURL *url = [NSURL URLWithString:self.urlPath];</span><br><span class="line">        NSData *data = [NSData dataWithContentsOfURL:url];</span><br><span class="line">        NSLog(@&quot;已下载 %@&quot;,[NSThread currentThread]);</span><br><span class="line">        UIImage *image = [UIImage imageWithData:data];</span><br><span class="line">        // 主线程回调，完成操作后通知调用方完成回调</span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            if (self.completeBlock != nil) &#123;</span><br><span class="line">                self.completeBlock(image);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="六、GCD-VS-NSOperation"><a href="#六、GCD-VS-NSOperation" class="headerlink" title="六、GCD VS NSOperation"></a>六、GCD VS NSOperation</h2><p><img src="https://user-gold-cdn.xitu.io/2018/11/24/16743245099358b9?w=2112&amp;h=1080&amp;f=jpeg&amp;s=347766" alt=""></p>
@@ -1322,7 +1319,7 @@ NSOperation和NSOperationQueue是基于GCD的更高一层的封装，分别对�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.5k字</span>
+  <span class="post-count">博客全站共26.2k字</span>
 </div>
 
         
